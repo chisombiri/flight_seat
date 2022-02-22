@@ -6,9 +6,22 @@ const airline = document.getElementById("airline");
 
 let ticketPrice = +airline.value;
 
+//this saves selected airline index and price
+function setAirlineData(airlineIndex, airlinePrice){
+    localStorage.setItem('selectedAirlineIndex', airlineIndex);
+    localStorage.setItem('selectedAirlinePrice', airlinePrice);
+}
+
 // to update total count
 const updateSelectedCount = () => {
     const selectedSeats = document.querySelectorAll('.row .seat.selected')
+
+    const seatsIndex = [...selectedSeats].map((seat) => {
+        return [...seats].indexOf(seat);
+    })
+
+    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+
     const selectedSeatsCount = selectedSeats.length;
     count.innerText = selectedSeatsCount;
     total.innerText = selectedSeatsCount * ticketPrice;  
@@ -17,6 +30,7 @@ const updateSelectedCount = () => {
 //airline select event
 airline.addEventListener('change', (e) => {
     ticketPrice = +e.target.value;
+    setAirlineData(e.target.selectedIndex, e.target.value);
     updateSelectedCount();
 })
 
