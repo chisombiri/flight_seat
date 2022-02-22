@@ -1,0 +1,176 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    -ms-overflow-style: none; /* scrolling for Internet Explorer, Edge */
+    scrollbar-width: none; /* scrolling for Firefox */
+    overflow-y: scroll; 
+    margin: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* scrolling for Chrome, Safari, and Opera */
+}
+
+.header{
+    background-image: url("vancouver.png");
+    background-size: cover;
+    background-position-y: center;
+    padding: 10em 0;
+    text-align: center;
+}
+
+.header h1{
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.1em;
+}
+
+.header span{
+    font-weight: bolder;
+    color: #ff0000;
+}
+
+.main-content{
+    display: flex;
+    flex-flow: column;
+    color: rgb(29, 29, 29);
+    justify-content: center;
+    align-items: center;
+}
+
+.airline-container{
+    margin: 24px 0;
+}
+
+.airline-container select{
+    background-color: rgba(255, 5, 5, 0.6);
+    color: #ffffff;
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none; 
+}
+
+.legends{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin: 2rem 0;
+    background-color: rgba(255, 5, 5, 0.6);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+}
+
+.legends li{
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.legends small{
+    color: #ffffff;
+}
+
+.seat{
+    background-color: white ;
+    border: #444451 2px solid;
+    height: 2rem;
+    width: 2.5rem;
+    margin: 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.row{
+    display: flex;
+}
+
+.row:nth-of-type(7){
+    margin-top: 2rem;
+}
+
+.seat.selected{
+    background-color: #6feaf6;
+    border: none;
+}
+
+.seat.occupied{
+    background-color: #444451;
+    border: none;
+}
+
+.seat:nth-of-type(2){
+    margin-right: 4rem;
+}
+
+.seat:nth-last-of-type(2){
+    margin-left: 4rem;
+}
+
+.seat:not(.occupied):hover{
+    cursor: pointer;
+    transform: scale(1.4);
+}
+
+.legends .seat:not(.occupied):hover{
+    cursor: default;
+    transform: scale(1);
+}
+
+.text{
+    margin: 1.5rem 0;
+}
+
+.text span{
+    color: #ff0000;
+    font-size: 1.2em;
+}
+
+@media (max-width:640px) {
+    .header{
+        width: 100vw;
+        padding: 8em 2em;
+    }
+
+    .legends{
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        padding: 1rem 1rem;
+    }
+
+    .row{
+        width: 100%;
+    }
+    .seat{
+        height: 1.2rem;
+        width: 1.5rem;
+        margin: 0.5rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+    }
+    .row:nth-of-type(7){
+        margin-top: 1rem;
+    }
+    .seat:nth-of-type(2){
+        margin-right: 2rem;
+    }
+    
+    .seat:nth-last-of-type(2){
+        margin-left: 2rem;
+    }
+
+    .airline-container select{
+        border-radius: 0.5em;
+        font-size: 1rem;
+        margin-left: 0.6rem;
+        padding: 0.5rem 0.5rem;
+    }
+}
